@@ -17,13 +17,13 @@ curl -L https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/install.sh 
 
 ## Usage
 
+This command expects you to have SVN_USER and SVN_PASS in your environment. Self explanatory what they are.
+
 ```bash
 wp-snv-deploy -slug slug -build dir -version n -user svn-user -pass svn-password [--batch-size n] [--message message]
 ```
 
 ### Example usage
-
-This command expects you to have SVN_USER and SVN_PASS in your environment. Self explanatory what they are.
 
 ```bash
 # assuming the svn credentials are in the env already
