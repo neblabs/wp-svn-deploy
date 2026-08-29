@@ -12,6 +12,7 @@ echo installing into "$targetFilePath"
 set -e
 curl -sSL  https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/wp-svn-deploy.sh -o "$targetFilePath"
 
+
 sudo chmod +x "$targetFilePath"
 
 # warn if not in path
