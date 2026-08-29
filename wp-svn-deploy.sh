@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function print-usage() {
-	echo usage: "$0" "-slug slug -build dir -version n -user svn-user -pass svn-password [--batch-size n] [--message message]" 1>&2
+	echo usage: "$0" "-slug slug -build dir -version n [--batch-size n] [--message message]" 1>&2
 }
 
 function fail-if-empty() {
@@ -31,16 +31,6 @@ while [[ $# -gt 0 ]]; do
 		fail-if-empty "$version"
 		shift 2
 		;;
-	-user)
-		SVN_USER="$2"
-		fail-if-empty "$SVN_USER"
-		shift 2
-		;;
-	-pass|-password)
-		SVN_PASS="$2"
-		fail-if-empty "$SVN_PASS"
-		shift 2
-		;;
 	--batch-size)
 		batchSize=$2
 		fail-if-empty "$batchSize"
@@ -60,6 +50,11 @@ done
 
 if [[ -z "$pluginSlug" ]] || [[ -z "$buildDir" ]] || [[ -z "$version" ]]; then
 	print-usage
+	exit 1
+fi
+
+if [[ -z "$SVN_USER" ]] || [[ -z "$SVN_PASS" ]]; then
+	echo "SVN user credentials needed. The environment needs to have the variables: SVN_USER and SVN_PASS" 1>&2
 	exit 1
 fi
 

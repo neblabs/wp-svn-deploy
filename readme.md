@@ -13,6 +13,7 @@ Run the installer
 
 ```bash
 curl -L https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/install.sh | sh
+```
 
 ## Usage
 
@@ -20,4 +21,8 @@ wp-snv-deploy -slug slug -build dir -version n -user svn-user -pass svn-password
 
 ### Example usage
 
-wp-snv-deploy -slug coupons-plus-for-woocommerce -build "$pluginBuildDir" -version 1.2.3 -user "$SVN_USERNAME" -pass "$SVN_PASSWORD"
+// assuming the svn credentials are in the env already
+wp-snv-deploy -slug coupons-plus-for-woocommerce -build "$pluginBuildDir" -version 1.2.3
+
+*the env needs to have SVN_USER and SVN_PASS with your wp repo credentials*
+SVN_USER="your user" SVN_PASS="your password do not hardcode" wp-snv-deploy -slug coupons-plus-for-woocommerce -build "$pluginBuildDir" -version 1.2.3
