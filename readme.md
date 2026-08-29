@@ -6,3 +6,10 @@ Deploys a build dir to a *new* tag with the given version to your plugin's WordP
 - Will create a new tag with the given version. If the tag already exists it'll override it.
 - It commits the files in batches of 500 by default. This is because in medium to large codebases (1,000+ or so files) the plugins repo will timeout and changes will not be committed. So this tool goes through a list of all the files changed ((A)dded, (M)odified, (R)emoved, etc) and it will commit them in batches. Waits 60s per commit to try to prevent rate-limiting.
 
+## Installation
+
+Run the installer
+
+```bash
+curl -L https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/install.sh | sh
+

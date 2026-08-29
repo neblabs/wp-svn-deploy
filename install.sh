@@ -10,7 +10,7 @@ mkdir -p "$targetDir"
 echo installing into "$targetFilePath"
 
 set -e
-curl -sSL  https://raw.githubusercontent.com/neblabs/versions-finder/main/wp-svn-deploy.sh -o "$targetFilePath"
+curl -sSL  https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/wp-svn-deploy.sh -o "$targetFilePath"
 
 sudo chmod +x "$targetFilePath"
 
