@@ -139,13 +139,15 @@ split -l "$batchSize" "$TMPDIR/all_targets.txt" "$TMPDIR/chunk_"
 
 n=1
 for chunk in "$TMPDIR"/chunk_*; do
+	if (( n != 1 )); then
+		echo "-- sleeping 30 until the next batch, hold tight... --"
+		sleep 30
+	fi
 	count=$(wc -l < "$chunk")
 	echo "== Batch $n: committing $count paths =="
 	svn commit --depth empty --targets "$chunk" -m "$commitMessage (part $n)" "${SVN_AUTH[@]}"
 	echo "== Batch $n: DONE! =="
 	n=$((n + 1))
-	echo "-- sleeping 60 until the next batch, hold tight... --"
-	sleep 60
 done
 
 echo "Done. All batches committed."
