@@ -25,6 +25,11 @@ while [[ $# -gt 0 ]]; do
 		buildDir="$2"
 		fail-if-empty "$buildDir"
 		shift 2
+		buildDir=$(cd "$buildDir" && pwd)
+		if ! [[ -d "$buildDir" ]]; then
+			echo "-build not a directory: $buildDir" 1>&2
+			exit 1
+		fi
 		;;
 	-version)
 		version="$2"
