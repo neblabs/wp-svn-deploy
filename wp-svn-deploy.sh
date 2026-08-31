@@ -141,6 +141,7 @@ for chunk in "$TMPDIR"/chunk_*; do
 	echo "== Batch $n: committing $count paths =="
 	svn commit --depth empty --targets "$chunk" -m "$commitMessage (part $n)" "${SVN_AUTH[@]}"
 	n=$((n + 1))
+	echo "== Batch $n: DONE! =="
 	echo "-- sleeping 60 until the next batch, hold tight... --"
 	sleep 60
 done
