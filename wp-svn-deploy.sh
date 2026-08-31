@@ -35,6 +35,8 @@ while [[ $# -gt 0 ]]; do
 		version="$2"
 		fail-if-empty "$version"
 		shift 2
+		# remove v from the version should it have it.
+		version=${version#[vV]}
 		;;
 	--batch-size)
 		batchSize=$2
