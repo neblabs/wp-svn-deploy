@@ -12,7 +12,7 @@ Deploys a build dir to a *new* tag with the given version to your plugin's WordP
 Run the installer
 
 ```bash
-curl -L https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/install.sh | sh
+curl -L https://raw.githubusercontent.com/neblabs/wp-svn-deploy/main/install.sh | bash
 ```
 
 ## Usage
